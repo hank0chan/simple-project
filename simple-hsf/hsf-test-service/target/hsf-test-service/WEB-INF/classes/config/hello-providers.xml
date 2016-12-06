@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="helloService" class="test.service.HelloServiceImpl"/>
+	
+	<bean id="helloServiceProvider" class="com.taobao.hsf.app.spring.util.HSFSpringProviderBean" init-method="init">
+		<property name="serviceInterface" value="test.apis.HelloService"></property>
+		<property name="serviceVersion" value="1.0.0"></property>
+		<property name="serviceGroup" value="TEST_HSF"></property>
+		<property name="target" ref="helloService"></property>
+	</bean>
+	
+</beans>
