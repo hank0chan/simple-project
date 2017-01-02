@@ -17,6 +17,8 @@ public class User {
 		this.gravatar = gravatar;
 	}
 
+	public User() {	}
+
 	public String getLogin() {
 		return login;
 	}

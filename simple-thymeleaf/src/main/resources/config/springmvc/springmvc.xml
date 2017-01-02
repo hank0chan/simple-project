@@ -33,6 +33,8 @@
 		<property name="prefix" value="/WEB-INF/templates/"/>
 	    <property name="suffix" value=".html"/>
 	    <property name="templateMode" value="HTML"/>
+	    <!--这里要设置编码 -->
+        <property name="characterEncoding" value="UTF-8"/>
 	</bean>
 	<!-- 配置Spring中的ViewResolver -->
 	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">

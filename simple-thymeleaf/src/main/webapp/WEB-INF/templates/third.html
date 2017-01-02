@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h1>Third Page</h1>
+
+	<p th:text="${indexPage}">/indexPage</p>
+	<p th:text="${spitter}">/spitter</p>
+	<p th:text="${register}">/register</p>
+ 	
+	<!-- 使用th:href标签：该标签必须通过@{...}语法来处理，以下是示例 -->
+	<!-- 1. 支持绝对路径URL
+		例如插入URL为：'http://localhost:8083/simple-thymeleaf/test/get-{num}.json
+	        其中的{num}为占位符，可以通过以下方式动态生成，在该URL的最后通过添加小括号()并在其中用${...}形式指定占位符的值
+	        也支持全占位符方式，如下的ToBaidu例子
+	 -->
+	<a th:href="@{http://localhost:8083/simple-thymeleaf/test/get-{num}.json(num=${id})}">getUserById</a><br><br>
+	<a th:href="@{{baiduUrl}(baiduUrl=${baidu})}">ToBaidu</a><br><br>
+	
+	<!-- 2. 包含请求参数的URL处理
+		例如URL为：http://localhost:8083/simple-thymeleaf/test/getUserByParam.json
+		需要的请求参数有：userName, lastName, gravatar
+		可以通过直接在URL后面添加小括号，并在括号中设定指定的请求参数，如下所示：
+	 -->
+	<a th:href="@{http://localhost:8083/simple-thymeleaf/test/getUserByParam.json(userName=${userName},lastName=${lastName},gravatar=${gravatar})}">ReqByParam</a><br><br>
+	<a th:href="@{{myContextUrl}/simple-thymeleaf/test/getUserByParam.json(myContextUrl=${myContextUrl},userName=${userName},lastName=${lastName},gravatar=${gravatar})}">ReqByParam(测试使用ModelAttribute)</a><br><br>
+	
+</body>
+</html>
