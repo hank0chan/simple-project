@@ -21,7 +21,7 @@ import cn.hankchan.thymeleaf.demo.entity.User;
 
 @RequestMapping("/test")
 @Controller
-public class IndexController {
+public class IndexSecondThirdController {
 
 	/**
 	 * ModelAttribute标签修饰的方法会在该Controller中的所有RequestMapping修饰的方法执行前执行。
