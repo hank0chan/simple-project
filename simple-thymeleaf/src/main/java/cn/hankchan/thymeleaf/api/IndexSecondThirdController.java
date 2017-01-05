@@ -1,7 +1,9 @@
 package cn.hankchan.thymeleaf.api;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +26,8 @@ import cn.hankchan.thymeleaf.demo.entity.User;
 public class IndexSecondThirdController {
 
 	/**
-	 * ModelAttribute标签修饰的方法会在该Controller中的所有RequestMapping修饰的方法执行前执行。
+	 * ModelAttribute标签修饰的方法会在该Controller中的
+	 * 所有RequestMapping修饰的方法执行前执行。
 	 * 可以用于在Model域中存放公共的数据
 	 */
 	@ModelAttribute
@@ -54,6 +57,7 @@ public class IndexSecondThirdController {
 	@RequestMapping("/second")
 	public String second(Model model) {  // model用于存放数据模型
 		Map<String, User> map = new HashMap<>();
+		List<User> userList = new ArrayList<>();
 		// 处理数据
 		User user1 = new User();
 		user1.setLogin("chenjm");
@@ -64,9 +68,12 @@ public class IndexSecondThirdController {
 		// 封装数据
 		map.put("chenjm", user1);
 		map.put("zhangt", user2);
+		userList.add(user1);
+		userList.add(user2);
 		// 放入Model。在页面中可以通过${...}获取相应的数据
 		//如：${users.chenjm.firstName}的值为：Chen
 		model.addAttribute("users", map);
+		model.addAttribute("userList", userList);
 		// 返回一个模板引擎渲染的页面结果，
 		//这里为：/WEB-INF/templates/second.html
 		return "second";

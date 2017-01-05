@@ -3,10 +3,19 @@
       xmlns:th="http://www.thymeleaf.org">
 <body>
 	<h1>Success Page</h1>
-	<th th:text="${users}">UsersMap</th><br>
+	Users: <th th:text="${users}">UsersMap</th><br>
 	
-	firstName:<th th:text="${users.chenjm.firstName}">User1-Chenjm</th><br>
-	User2:<th th:text="${users.zhangt}">User2-Zhangt</th><br>
+	<!-- 变量表达式 -->
+	firstName: <th th:text="${users.chenjm.firstName}">User1-Chenjm</th><br><br>
+	User2: <th th:text="${users.zhangt}">User2-Zhangt</th><br><br>
+	
+	<p>Test th:each....</p>
+	
+	<!-- th:each标签：根据集合遍历，并且能够自动生成输出多个子节点 -->
+	<li th:each="user : ${userList}">
+		FirstName: <ul th:text="${user.firstName}"></ul>
+		LastName: <ul th:text="${user.lastName}"></ul>
+	</li>
 	
 </body>
 </html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	 <!-- 配置别名，根据需求可以配置
+	 <typeAliases>
+	 	<typeAlias alias="stationEntity" type="swift.dao.drds.entity.StationEntity"/>
+	 </typeAliases>
+	  -->
+	 <!-- 
+		配置Mapper 备注:由于使用Spring整合mybtais的整合包进行mapper扫描,
+		这里不需要配置了 必须遵循:mapper.xml和mapper.java文件同名且在同一目录下 
+	<mappers>
+		<package name="swift.dao.drds.mapper" />
+		<mapper />
+	</mappers>
+ 	-->
+</configuration>

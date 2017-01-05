@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- 引入外部资源文件 -->
+	<context:property-placeholder location="classpath:druid.properties"/>
+	
+	<!-- DRDS中间件推荐使用的dataSource数据库连接池配置 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" 
+			init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${DRDS.DRIVER}" />
+        <!-- 基本属性 url、user、password -->
+        <property name="url" value="${DRDS.URL}" />
+        <property name="username" value="${DRDS.USER}" />
+        <property name="password" value="${DRDS.PASSWORD}" />
+        <!-- 其他属性配置 -->
+        <property name="maxActive" value="${DRDS.maxActive}" />
+        <property name="initialSize" value="${DRDS.initialSize}" />
+        <property name="minIdle" value="${DRDS.minIdle}" />
+        <property name="maxWait" value="${DRDS.maxWait}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${DRDS.timeBetweenEvictionRunsMillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${DRDS.minEvictableIdleTimeMillis}" />
+        <property name="validationQuery" value="${DRDS.validationQuery}" />
+        <property name="testWhileIdle" value="${DRDS.testWhileIdle}" />
+        <property name="testOnBorrow" value="${DRDS.testOnBorrow}" />
+        <property name="testOnReturn" value="${DRDS.testOnReturn}" />
+     </bean> 
+</beans>

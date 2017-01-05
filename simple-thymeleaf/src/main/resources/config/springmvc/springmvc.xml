@@ -12,12 +12,12 @@
     <mvc:annotation-driven />
 	<mvc:default-servlet-handler />
 	
-	<!-- 静态资源不拦截 
-	<mvc:resources location="/assets/img/" mapping="/assets/img/**" />
-	<mvc:resources location="/assets/css/" mapping="/assets/css/**" />
-	<mvc:resources location="/assets/js/" mapping="/assets/js/**" />
-	 -->
-	
+	<!-- 静态资源不拦截 -->
+	<mvc:resources location="/images/" mapping="/WEB-INF/images/**" />
+  	<mvc:resources location="/css/" mapping="/WEB-INF/css/**" />
+  	<mvc:resources location="/js/" mapping="/WEB-INF/js/**" />
+
+	 
 	<!-- 当在applicationContext.xml中指定的ThymeleafConfig配置类中初始化，这里就都需要屏蔽 -->	
 	<!-- 配置TemplateEngine -->
 	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">

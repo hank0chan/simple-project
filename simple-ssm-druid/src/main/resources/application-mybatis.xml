@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+	
+	<!-- 配置Mybatis的SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <!-- 加载Mybatis的全局配置文件 -->
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+    </bean>
+	<!-- 配置Mybatis自动扫描MapperXML文件的扫描器类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    	<!-- 指定被扫描的包路径 -->
+        <property name="basePackage" value="swift.dao.drds.mapper" />
+        <!-- 此处不能使用ref，因为上面的加载会导致报错。必须用value -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+	<!-- 配置Mybatis的事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+</beans>

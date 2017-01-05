@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swift.dao.drds.mapper.StationEntityMapper">
+	<resultMap type="swift.dao.drds.entity.StationEntity" id="stationEntity">
+		<result column="StationID" jdbcType="VARCHAR" property="stationId"/>
+		<result column="Name" jdbcType="VARCHAR" property="name"/>
+		<result column="Longitude" jdbcType="DECIMAL" property="longitude"/>
+		<result column="Latitude" jdbcType="DECIMAL" property="latitude"/>
+		<result column="StationType" jdbcType="VARCHAR" property="stationType"/>
+		<result column="Height" jdbcType="DECIMAL" property="height"/>
+		<result column="CountyCode" jdbcType="VARCHAR" property="countyCode"/>
+		<result column="PRCODE" jdbcType="VARCHAR" property="prCode"/>
+		<result column="AreaCode" jdbcType="VARCHAR" property="areaCode"/>
+		<result column="CityCode" jdbcType="VARCHAR" property="cityCode"/>
+	</resultMap>
+	
+	<select id="queryStationsByCity" parameterType="java.lang.String" resultMap="stationEntity">
+		SELECT * FROM ts_station WHERE CityCode = #{cityCode}
+	</select>
+	<select id="getStationByCity" parameterType="java.lang.String" resultMap="stationEntity">
+		SELECT * FROM ts_station WHERE CityCode = #{cityCode} LIMIT 1
+	</select>
+	<update id="update" parameterType="swift.dao.drds.entity.StationEntity">
+		UPDATE ts_station
+		<set>
+			<if test="name != null">
+				Name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="longitude != null">
+				Longitude = #{longitude,jdbcType=DECIMAL},
+			</if>
+			<if test="latitude != null">
+				Latitude = #{latitude,jdbcType=DECIMAL},
+			</if>
+			<if test="stationType != null">
+				StationType = #{stationType,jdbcType=VARCHAR},
+			</if>
+			<if test="height != null">
+				Height = #{height,jdbcType=DECIMAL},
+			</if>
+			<if test="prCode != null">
+				PRCODE = #{prCode,jdbcType=VARCHAR},
+			</if>
+			<if test="areaCode != null">
+				AreaCode = #{areaCode,jdbcType=VARCHAR},
+			</if>
+			<if test="cityCode != null">
+				CityCode = #{cityCode,jdbcType=VARCHAR}
+			</if>
+		</set>
+		WHERE StationID = #{stationId,jdbcType=VARCHAR}
+	</update>
+</mapper>

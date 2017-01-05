@@ -3,12 +3,9 @@
 	xmlns:th="http://www.thymeleaf.org">
 <body>
 	<h1>Third Page</h1>
-
-	<p th:text="${indexPage}">/indexPage</p>
-	<p th:text="${spitter}">/spitter</p>
-	<p th:text="${register}">/register</p>
  	
 	<!-- 使用th:href标签：该标签必须通过@{...}语法来处理，以下是示例 -->
+	
 	<!-- 1. 支持绝对路径URL
 		例如插入URL为：'http://localhost:8083/simple-thymeleaf/test/get-{num}.json
 	        其中的{num}为占位符，可以通过以下方式动态生成，在该URL的最后通过添加小括号()并在其中用${...}形式指定占位符的值
