@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xbatis.data.sample.mapper.SampleMapper">
+	<resultMap type="xbatis.data.sample.entity.Sample" id="Sample">
+		<result column="FirstAttr" property="firstAttr"/>
+		<result column="SecondAttr" property="secondAttr"/>
+		<result column="ThirdAttr" property="thirdAttr"/>
+		<result column="FourthAttr" property="fourthAttr"/>
+		<result column="IntNum" property="intNum"/>
+		<result column="FloatNum" property="floatNum"/>
+	</resultMap>
+	<select id="get" resultMap="Sample">
+		select * from t_sample where FirstAttr = ${firstAttr}
+	</select>
+</mapper>
+

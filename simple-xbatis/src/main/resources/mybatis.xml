@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	 <!-- 配置别名，根据需求可以配置
+	 	<typeAlias alias="GuandSurfH" 
+	 		type="swift.data.station.entity.GuandSurfH"/>
+	 </typeAliases>
+	  -->
+	  
+	  <settings>
+	  	<!-- Mybatis默认没有启动延迟加载 -->
+	  	<!-- 启动与否 -->
+	  	<setting name="lazyLoadingEnabled" value="false"/>
+	  	<!-- 允许与否 -->
+	  	<setting name="aggressiveLazyLoading" value="false"/>
+	  </settings>
+	  
+</configuration>

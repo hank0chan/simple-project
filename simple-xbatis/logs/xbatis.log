@@ -1,0 +1,3 @@
+16:01:27.552 [main] DEBUG XBATIS - This is the DEBUG test message..
+16:01:27.555 [main] INFO  XBATIS - This is the INFO test message..
+16:01:27.556 [main] ERROR XBATIS - This is the ERROR test message..
