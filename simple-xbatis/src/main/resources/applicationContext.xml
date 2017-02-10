@@ -7,6 +7,8 @@
 	
 	<context:annotation-config/>
 	
+	<bean class="test.PojoRefSpringBeanUtil"/>
+	
 	<!-- 管理Sample相关的Bean -->
 	<import resource="classpath:application-sample.xml"/>
 	

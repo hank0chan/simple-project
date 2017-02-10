@@ -9,8 +9,10 @@
 		<result column="IntNum" property="intNum"/>
 		<result column="FloatNum" property="floatNum"/>
 	</resultMap>
+	
 	<select id="get" resultMap="Sample">
-		select * from t_sample where FirstAttr = ${firstAttr}
+		select * from t_sample where FirstAttr=#{firstAttr}
 	</select>
+	
 </mapper>
 
